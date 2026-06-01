@@ -1,0 +1,45 @@
+# Ambiente virtual
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribuição/build
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Banco SQLite
+*.db
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Testes/cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# FastAPI/Uvicorn
+uvicorn.log
