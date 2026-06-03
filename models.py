@@ -28,14 +28,14 @@ class User(Base):
 class Order(Base):
     __tablename__ = "orders"
     
-    ORDER_STATUS = (
-    ("PENDING", "PENDING"),
-    ("CANCELED", "CANCELED"),
-    ("FINALIZED", "FINALIZED")
-    )
+    # ORDER_STATUS = (
+    # ("PENDING", "PENDING"),
+    # ("CANCELED", "CANCELED"),
+    # ("FINALIZED", "FINALIZED")
+    # )
     
     id = Column("id", Integer, primary_key=True, autoincrement=True)
-    status = Column("status", ChoiceType(choices=ORDER_STATUS))
+    status = Column("status", String)
     user = Column("user", ForeignKey("users.id"))
     price = Column("price", Float)
     # items =
@@ -44,5 +44,23 @@ class Order(Base):
         self.user = user
         self.status = status
         self.price = price
+        
+        
+class OrderItem(Base):
+    __tablename__ = "order_items"
+    
+    id = Column("id", Integer, primary_key=True, autoincrement=True)
+    quantity = Column("quantity", Integer)
+    flavor = Column("flavor", String)
+    size = Column("size", String)
+    unity_price = Column("unity_price", Float)
+    order = Column("order", ForeignKey("orders.id"))
+    
+    def __init__(self, quantity, flavor, size, unity_price, order):
+        self.quantity = quantity
+        self.flavor = flavor
+        self.size = size
+        self.unity_price = unity_price
+        self.order = order
         
         
